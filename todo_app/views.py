@@ -14,9 +14,11 @@ def index(request):
     return render(request,'index.html',{'task_view':task_view})
 
 def delete(request,id):
-    task=todo.objects.get(id=id)
-    task.delete()
-    return redirect('/')
+    if request.method=='POST':
+        task=todo.objects.get(id=id)
+        task.delete()
+        return redirect('/')
+    return render(request,'delete.html')
 
 def update(request,task_id):
     task=todo.objects.get(id=task_id)

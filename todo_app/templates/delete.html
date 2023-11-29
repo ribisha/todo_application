@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container" style="width:50%; height:50%; margin-top:50px;">
+  <div>
+    <form method="POST">
+  {% csrf_token %}
+      <p style="text-align:center;padding-top:80px;">Are you sure, you want to delete?</p><br>
+      <div class="d-flex align-items-center justify-content-center">
+          <input type="submit" class="btn btn-danger" value="Submit">
+      </div>
+</form>
+  </div>
+</div>
+
+{% endblock %}

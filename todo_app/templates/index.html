@@ -12,9 +12,12 @@
     </div>
     </div>
 </div>
+<div>
+    <h4 style="margin-left:51%;">Task To Be Completed</h4>
+</div>
 <div class="container shadow">
     <div  class="row">
-        <div class="col-md-6">
+        <div class="col-md-6"><br>
             <form method="POST" class="p-3 shadow">
                    {% csrf_token %}
                 <div class="form-group">
@@ -33,14 +36,13 @@
             </form>
         </div>
 
-        <div class="col-md-6">
-            <h6>Task to be completed</h6>
+        <div class="col-md-6"><br>
             {% for i in task_view %}
             <div class="shadow card">
                 <div class="card-body">
                     <h1>{{i.task_name}}</h1>
                     <p>{{i.priority}}</p>
-                    <p>c{{i.date}}</p>
+                    <p>{{i.date}}</p>
                     <a href="{% url 'delete' i.id %}" class="btn btn-danger">Done</a>
                     <a href="{% url 'update' i.id %}" class="btn btn-warning">Update</a>
                 </div>
